@@ -1,6 +1,6 @@
 import pytest
 
-from app.main import get_human_age
+from app import main
 
 
 @pytest.mark.parametrize(
@@ -23,7 +23,7 @@ def test_get_human_age(
     dog_age: int,
     expected: list[int],
 ) -> None:
-    assert get_human_age(cat_age, dog_age) == expected
+    assert main.get_human_age(cat_age, dog_age) == expected
 
 
 @pytest.mark.parametrize(
@@ -42,4 +42,4 @@ def test_should_raise_error_when_age_is_not_integer(
     dog_age: object,
 ) -> None:
     with pytest.raises(TypeError):
-        get_human_age(cat_age, dog_age)
+        main.get_human_age(cat_age, dog_age)
